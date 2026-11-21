@@ -142,14 +142,9 @@ for (const file of htmlFiles) {
     let candidate = join(dist, target);
     if (target.endsWith("/")) candidate = join(candidate, "index.html");
     else if (!extname(target)) candidate = join(candidate, "index.html");
-    if (!existsSyncLike(candidate)) failures.push(`${name}: lien mort ${target}`);
+    if (!(await exists(candidate))) failures.push(`${name}: lien mort ${target}`);
   }
 }
-
-function existsSyncLike(path: string) {
-  return existsCache.has(path) ? existsCache.get(path) : undefined;
-}
-const existsCache = new Map<string, boolean>();
 
 const requiredAssets = [
   "assets/styles.css",
