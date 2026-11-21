@@ -1,5 +1,5 @@
 import { site, gallery, galleryCategories } from "../data/site.ts";
-import { layout, pageHero, callBand, breadcrumbSchema } from "../lib/html.ts";
+import { layout, pageHero, callBand, galleryFigure, breadcrumbSchema } from "../lib/html.ts";
 
 const body = `
 ${pageHero({
